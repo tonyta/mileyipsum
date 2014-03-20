@@ -1,0 +1,14 @@
+body {
+  background-color: #222;
+}
+
+.container {
+  margin: 20px auto;
+  width: 80%;
+  padding: 20px;
+  background-color: white;
+}
+
+th {
+  text-align: left;
+}
