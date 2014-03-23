@@ -118,9 +118,15 @@ namespace :db do
   end
 end
 
+desc 'Scrapes azlyrics.com for all Miley Cyrus lyrics'
+task :scrape do
+  puts "Scraping Miley Cyrus lyrics..."
+  require APP_ROOT.join('db', 'scrape.rb')
+end
+
 desc 'Start IRB with application environment loaded'
 task "console" do
-  exec "pry -r./config/environment --prompt-simple"
+  exec "pry -r./config/environment --simple-prompt"
 end
 
 desc "Run the specs"
