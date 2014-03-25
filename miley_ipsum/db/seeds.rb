@@ -1,7 +1,7 @@
 Word.delete_all
 Relationship.delete_all
 
-file = File.open( APP_ROOT.join('db', 'seed', 'sample_seed.txt'), 'r' )
+file = File.open( APP_ROOT.join('db', 'seed', 'combined_lyrics_file.txt'), 'r' )
 
 
 file.each do |line|
