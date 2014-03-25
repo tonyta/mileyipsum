@@ -12,4 +12,8 @@ class Word < ActiveRecord::Base
     end
     Word.find(ids_probability_arr.sample)
   end
+
+  def self.random
+    self.first(offset: rand(self.count))
+  end
 end
