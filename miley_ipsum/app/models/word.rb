@@ -16,4 +16,13 @@ class Word < ActiveRecord::Base
   def self.random
     self.first(offset: rand(self.count))
   end
+
+  def self.ipsum(num_words)
+    words = []
+    words << self.random
+    (num_words - 1).times do
+      words << words.last.next_word
+    end
+    words.map(&:word).join(' ')
+  end
 end
