@@ -4,7 +4,7 @@ class Word < ActiveRecord::Base
   has_many :children, through: :as_parent_relationships
   has_many :parents, through: :as_child_relationships
 
-    def next_word
+  def next_word
     Word.find(all_children.sample)
   end
   
