@@ -124,6 +124,12 @@ task :scrape do
   require APP_ROOT.join('db', 'scrape.rb')
 end
 
+desc 'Parses through scraped html'
+task :parse do
+  puts 'Parsing...'
+  require APP_ROOT.join('db', 'parse.rb')
+end
+
 desc 'Start IRB with application environment loaded'
 task "console" do
   exec "pry -r./config/environment --simple-prompt"
