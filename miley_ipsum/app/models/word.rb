@@ -5,12 +5,12 @@ class Word < ActiveRecord::Base
   has_many :parents, through: :as_child_relationships
 
   def next_word
+    Word.find(all_children.sample)
+  end
+  
+  def all_children
     relationships = self.as_parent_relationships
-    ids_probability_arr = []
-    relationships.each do |r|
-      r.count.times { ids_probability_arr << r.child_id }
-    end
-    Word.find(ids_probability_arr.sample)
+    relationships.map{|r| [r.child_id] * r.count }.flatten
   end
 
   def self.random
