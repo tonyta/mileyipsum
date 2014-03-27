@@ -130,6 +130,10 @@ task :parse do
   require APP_ROOT.join('db', 'parse.rb')
 end
 
+task :line_length do
+  require APP_ROOT.join('db', 'line_length.rb')
+end
+
 desc 'Start IRB with application environment loaded'
 task "console" do
   exec "pry -r./config/environment --simple-prompt"
