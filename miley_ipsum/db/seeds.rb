@@ -21,3 +21,10 @@ file.each do |line|
     prev_word = word
   end
 end
+
+alpha_array = Word.all.each.with_object([]) { |word, array|
+  word.alpha.times { array << word.id }
+}
+
+alpha = File.open( APP_ROOT.join('db', 'seed', 'alpha.txt'), 'w+')
+alpha.write alpha_array.to_s
