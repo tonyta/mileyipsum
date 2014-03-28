@@ -1,14 +1,15 @@
 body {
-  background-color: #222;
+  /*background-color: #222;*/
+  background: linear-gradient(to bottom, #ffc09d 0%,#6958dc 100%);
 }
 
 .container {
-  margin: 20px auto;
+  margin: 20px auto;/*
   width: 80%;
   padding: 20px;
-  background-color: white;
+  background-color: */white;
 }
 
 th {
-  text-align: left;
+  /*text-align: left;*/
 }
