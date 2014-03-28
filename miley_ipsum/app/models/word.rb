@@ -19,21 +19,24 @@ class Word < ActiveRecord::Base
   end
 
   def end_occurance_probability
-    (word.omega / word.count)
+    (self.omega.to_f / self.count.to_f)
+  end
+
+  def is_last_word?
+    probability = (self.end_occurance_probability * 100)
+    (0..probability).include?((0..100).to_a.sample)
   end
 
   def self.random
     self.find(first_word_id)
   end
 
-  def self.ipsum(num_words)
+  def self.ipsum
     words = []
     words << self.random
-    (num_words - 1).times do
+    until (words.last.is_last_word?)
       words << words.last.next_word
     end
-    words.map(&:word).join(' ')
-  rescue ActiveRecord::RecordNotFound
     words.map(&:word).join(' ')
   end
 
