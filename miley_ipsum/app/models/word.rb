@@ -14,6 +14,10 @@ class Word < ActiveRecord::Base
     relationships.map{|r| [r.child_id] * r.count }.flatten
   end
 
+  def count
+    self.children.count + self.omega
+  end
+
   def self.random
     self.find(first_word_id)
   end
