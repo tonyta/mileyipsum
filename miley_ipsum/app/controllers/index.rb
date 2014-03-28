@@ -3,7 +3,5 @@ get '/' do
 end
 
 get '/ipsum' do
-  lines = []
-  4.times { lines << Word.ipsum }
-  lines.join(',<br>') << '.'
+  Word.stanza + "<br><br>" + Word.stanza
 end

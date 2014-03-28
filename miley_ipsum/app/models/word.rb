@@ -41,4 +41,12 @@ class Word < ActiveRecord::Base
     words.map(&:word).join(' ')
   end
 
+  def self.stanza
+    lines = []
+    4.times do
+      lines << self.ipsum.capitalize
+    end
+    lines.join(',<br>') << '.'
+  end
+
 end

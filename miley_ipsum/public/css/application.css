@@ -51,12 +51,12 @@ body {
 }
 
 #ipsums {
-  color: white;
+  color: #41239E;
   font-size: 1.6em;
   margin: 40px auto;
   width: 600px;
   height: 400px;
-  background-color: black;
+  line-height: 1.5em;
 }
 
 th {
