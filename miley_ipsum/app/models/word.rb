@@ -10,33 +10,34 @@ class Word < ActiveRecord::Base
   end
 
   def all_children
-    relationships = self.as_parent_relationships
-    relationships.map{|r| [r.child_id] * r.count }.flatten
+    relationships = self.as_parent_relationships #one call
+    relationships.map{|r| [r.child_id] * r.count }.flatten #one call
   end
 
-  def count
+  def count #two database calls
     self.children.count + self.omega
   end
 
-  def end_occurance_probability
-    (self.omega.to_f / self.count.to_f)
+  def end_occurance_probability (index)#one database call + two database calls
+    ((self.omega.to_f / self.count.to_f) + next_word_prob(index)) /2.0
   end
 
-  def is_last_word?
-    probability = (self.end_occurance_probability * 100)
-    (0..probability).include?((0..100).to_a.sample)
+  def next_word_prob(index)
+    is_there_next_word_prob(index)
   end
 
-  def self.random
+  def self.random # one database call
     self.find(first_word_id)
   end
 
   def self.ipsum
     words = []
-    words << self.random
-    until (words.last.is_last_word?)
-      words << words.last.next_word
+    words << self.random #one call
+    until (rand < words.last.end_occurance_probability(words.length)) && words.length >= 5 #three calls (per word)
+      words << words.last.next_word #one call +
     end
+    words.map(&:word).join(' ')
+    rescue ActiveRecord::RecordNotFound
     words.map(&:word).join(' ')
   end
 
