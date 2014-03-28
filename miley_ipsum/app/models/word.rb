@@ -18,6 +18,10 @@ class Word < ActiveRecord::Base
     self.children.count + self.omega
   end
 
+  def end_occurance_probability
+    (word.omega / word.count)
+  end
+
   def self.random
     self.find(first_word_id)
   end
