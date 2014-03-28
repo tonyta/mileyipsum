@@ -31,7 +31,7 @@ body {
 
 .container {
   background: linear-gradient(to bottom, #ffc09d 0%,#6958dc 100%);
-  padding-top: 24px;
+  padding-top: 32px;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -53,9 +53,9 @@ body {
 #ipsums {
   color: #41239E;
   font-size: 1.6em;
-  margin: 40px auto;
+  margin: 32px auto;
   width: 600px;
-  height: 400px;
+  /*height: 400px;*/
   line-height: 1.5em;
 }
 

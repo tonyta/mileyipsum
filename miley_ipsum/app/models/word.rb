@@ -49,4 +49,12 @@ class Word < ActiveRecord::Base
     lines.join(',<br>') << '.'
   end
 
+  def self.chorus
+    lines = []
+    2.times do
+      lines << self.ipsum.capitalize
+    end
+    '<br><br>[chorus]<br>' + (lines.join(',<br>') << '.<br>')*2
+  end
+
 end

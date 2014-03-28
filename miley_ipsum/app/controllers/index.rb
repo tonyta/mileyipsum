@@ -3,5 +3,5 @@ get '/' do
 end
 
 get '/ipsum' do
-  Word.stanza + "<br><br>" + Word.stanza
+  Word.stanza + "<br><br>" + Word.stanza + Word.chorus
 end
