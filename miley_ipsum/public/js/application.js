@@ -4,6 +4,7 @@ $(document).ready(function() {
       console.log(response);
       $('#ipsums').html(response);
     })
+    $("html").css({overflow: "visible"});
   })
 
 
