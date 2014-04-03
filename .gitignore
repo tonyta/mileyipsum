@@ -25,4 +25,3 @@ chromedriver.log
 bin/
 .env
 *.swp
-Gemfile.lock
