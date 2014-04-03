@@ -44,7 +44,7 @@ class Word < ActiveRecord::Base
   def self.stanza
     lines = []
     4.times do
-      lines << self.ipsum.capitalize
+      lines << self.ipsum.capitalize.gsub(/\bi\b/, 'I')
     end
     lines.join(',<br>') << '.'
   end
@@ -52,9 +52,8 @@ class Word < ActiveRecord::Base
   def self.chorus
     lines = []
     2.times do
-      lines << self.ipsum.capitalize
+      lines << self.ipsum.capitalize.gsub(/\bi\b/, 'I')
     end
     '<br><br>[chorus]<br>' + (lines.join(',<br>') << '.<br>')*2
   end
-
 end

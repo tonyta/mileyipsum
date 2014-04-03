@@ -52,6 +52,7 @@ h1 {
  text-align: center;
  text-transform: uppercase;
  box-shadow: 0 0 3px #999;
+ cursor:pointer;
 }
 
 #ipsums {
