@@ -1,4 +1,4 @@
-##[Miley Ipsum](https://www.mileyipsum.co "mileyipsum.co")
+##[Miley Ipsum](http://www.mileyipsum.co "mileyipsum.co")
 
 New Miley Cyrus Lyrics from Old Ones
 
